@@ -3,11 +3,11 @@ import pool from '@/lib/db';
 import { RowDataPacket } from 'mysql2';
 
 // PUT - Modifier un marqueur existant
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
     const body = await request.json();
     const { name, type, x, y, description, color, emoji } = body;
-    const { id } = params;
+    const { id } = await params;
 
     await pool.query(
       'UPDATE locations SET name = ?, type = ?, x = ?, y = ?, description = ?, color = ?, emoji = ? WHERE id = ?',
@@ -24,9 +24,9 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
 }
 
 // DELETE - Supprimer un marqueur
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
     await pool.query('DELETE FROM locations WHERE id = ?', [id]);
     
