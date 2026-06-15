@@ -98,10 +98,10 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8">
         <header className="text-center mb-8 flex items-center justify-between">
           <div className="flex-1">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
                SkyMob - SkyFA
             </h1>
-            <p className="text-purple-200 text-lg">
+            <p className="text-gray-700 text-lg">
               Carte interactive du SkyMob - SkyFA
             </p>
           </div>
