@@ -48,14 +48,14 @@ export default function LocationPanel({ location, onClose }: LocationPanelProps)
   };
 
   return (
-    <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-gray-300 animate-in slide-in-from-right duration-300">
+    <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-white/20 animate-in slide-in-from-right duration-300">
       <div className="flex items-start justify-between mb-4">
-        <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-white flex items-center gap-2">
           {getTypeIcon(location.type)} {location.name}
         </h2>
         <button
           onClick={onClose}
-          className="text-gray-600 hover:text-gray-900 transition-colors text-2xl leading-none"
+          className="text-white/60 hover:text-white transition-colors text-2xl leading-none"
         >
           ×
         </button>
@@ -71,32 +71,32 @@ export default function LocationPanel({ location, onClose }: LocationPanelProps)
           </span>
         </div>
 
-        <div className="bg-gray-100 rounded-lg p-4">
-          <h3 className="text-sm font-semibold text-gray-800 mb-2">📝 Description</h3>
-          <p className="text-gray-900">{location.description}</p>
+        <div className="bg-white/10 rounded-lg p-4">
+          <h3 className="text-sm font-semibold text-purple-200 mb-2">📝 Description</h3>
+          <p className="text-white/90">{location.description}</p>
         </div>
 
-        <div className="bg-gray-100 rounded-lg p-4">
-          <h3 className="text-sm font-semibold text-gray-800 mb-2">📍 Coordonnées</h3>
+        <div className="bg-white/10 rounded-lg p-4">
+          <h3 className="text-sm font-semibold text-purple-200 mb-2">📍 Coordonnées</h3>
           <div className="grid grid-cols-2 gap-2 text-sm">
             <div>
-              <span className="text-gray-600">X:</span>
-              <span className="text-gray-900 ml-2">{location.x}%</span>
+              <span className="text-white/60">X:</span>
+              <span className="text-white ml-2">{location.x}%</span>
             </div>
             <div>
-              <span className="text-gray-600">Y:</span>
-              <span className="text-gray-900 ml-2">{location.y}%</span>
+              <span className="text-white/60">Y:</span>
+              <span className="text-white ml-2">{location.y}%</span>
             </div>
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 rounded-lg p-4 border border-blue-400/30">
-          <h3 className="text-sm font-semibold text-gray-800 mb-2">🎯 Actions</h3>
+        <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-lg p-4 border border-purple-400/30">
+          <h3 className="text-sm font-semibold text-purple-200 mb-2">🎯 Actions</h3>
           <div className="space-y-2">
             <button className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium">
               🗺️ Voir sur la carte
             </button>
-            <button className="w-full bg-gray-200 hover:bg-gray-300 text-gray-900 py-2 px-4 rounded-lg transition-colors text-sm font-medium">
+            <button className="w-full bg-white/20 hover:bg-white/30 text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium">
               📋 Copier les infos
             </button>
           </div>

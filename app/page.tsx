@@ -94,14 +94,14 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#02d9f9] via-[#06a2db] to-[#03ffff]">
+    <div className="min-h-screen bg-gradient-to-br from-[#0a1628] via-[#1a365d] to-[#0a1628]">
       <div className="container mx-auto px-4 py-8">
         <header className="text-center mb-8 flex items-center justify-between">
           <div className="flex-1">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
                SkyMob - SkyFA
             </h1>
-            <p className="text-gray-700 text-lg">
+            <p className="text-gray-300 text-lg">
               Carte interactive du SkyMob - SkyFA
             </p>
           </div>

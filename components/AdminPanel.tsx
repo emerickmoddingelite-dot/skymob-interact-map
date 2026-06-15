@@ -116,9 +116,9 @@ export default function AdminPanel({ locations, onAddLocation, onDeleteLocation,
   };
 
   return (
-    <div className="bg-white/90 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-gray-300">
+    <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-2xl border border-white/20">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-bold text-gray-900 flex items-center gap-2">
+        <h2 className="text-xl font-bold text-white flex items-center gap-2">
           ⚙️ Gestion des Marqueurs
         </h2>
         <button
@@ -136,14 +136,14 @@ export default function AdminPanel({ locations, onAddLocation, onDeleteLocation,
       </div>
 
       {showAddForm && (
-        <form onSubmit={handleSubmit} className="bg-gray-100 rounded-lg p-4 mb-4">
-          <h3 className="text-lg font-semibold text-gray-800 mb-3">
+        <form onSubmit={handleSubmit} className="bg-white/10 rounded-lg p-4 mb-4">
+          <h3 className="text-lg font-semibold text-purple-200 mb-3">
             {editingLocation ? 'Modifier le Marqueur' : 'Nouveau Marqueur'}
           </h3>
           
           <div className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Nom</label>
+              <label className="block text-sm font-medium text-white mb-1">Nom</label>
               <input
                 type="text"
                 value={newLocation.name}
@@ -155,7 +155,7 @@ export default function AdminPanel({ locations, onAddLocation, onDeleteLocation,
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Type</label>
+              <label className="block text-sm font-medium text-white mb-1">Type</label>
               <select
                 value={newLocation.type}
                 onChange={(e) => setNewLocation({...newLocation, type: e.target.value as any, color: getTypeColor(e.target.value)})}
@@ -169,7 +169,7 @@ export default function AdminPanel({ locations, onAddLocation, onDeleteLocation,
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Couleur du marqueur</label>
+              <label className="block text-sm font-medium text-white mb-1">Couleur du marqueur</label>
               <div className="flex items-center gap-3">
                 <input
                   type="color"
@@ -188,7 +188,7 @@ export default function AdminPanel({ locations, onAddLocation, onDeleteLocation,
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-2">Position sur la carte</label>
+              <label className="block text-sm font-medium text-white mb-2">Position sur la carte</label>
               <div className="flex gap-2 mb-2">
                 <button
                   type="button"
@@ -233,7 +233,7 @@ export default function AdminPanel({ locations, onAddLocation, onDeleteLocation,
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Description</label>
+              <label className="block text-sm font-medium text-white mb-1">Description</label>
               <textarea
                 value={newLocation.description}
                 onChange={(e) => setNewLocation({...newLocation, description: e.target.value})}
@@ -245,7 +245,7 @@ export default function AdminPanel({ locations, onAddLocation, onDeleteLocation,
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-900 mb-1">Émoji du blip</label>
+              <label className="block text-sm font-medium text-white mb-1">Émoji du blip</label>
               <div className="space-y-2">
                 <div className="flex flex-wrap gap-2 mb-2">
                   {['📍', '🏢', '🏝️', '🛫','🛬', '🚗', '🏥', '👮', '🔫', '🍕', '⛽', '🏦', '🏠', '🎰', '🏪', '🚑', '🚔', '💊', '🎓', '🏟️', '🎪', '🎮', '🍔', '☕', '🎵', '🛒', '🏨', '⚽', '🎬', '🎨', '🚁','🎽'].map((emoji) => (
@@ -284,7 +284,7 @@ export default function AdminPanel({ locations, onAddLocation, onDeleteLocation,
       )}
 
       <div className="space-y-2 max-h-96 overflow-y-auto">
-        <h3 className="text-sm font-semibold text-gray-800 mb-2">Marqueurs existants ({locations.length})</h3>
+        <h3 className="text-sm font-semibold text-purple-200 mb-2">Marqueurs existants ({locations.length})</h3>
         {locations.map((location) => (
           <div
             key={location.id}
