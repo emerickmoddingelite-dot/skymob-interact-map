@@ -1,36 +1,167 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏝️ Carte Interactive Cayo Perico - GTA V
 
-## Getting Started
+Carte interactive de l'île de Cayo Perico (GTA V) pour afficher les informations d'événement et les emplacements des entreprises et stands. Hébergeable sur Vercel.
 
-First, run the development server:
+## 🚀 Fonctionnalités
 
+- **Carte interactive** de l'île de Cayo Perico avec marqueurs cliquables
+- **Informations événement** avec date, lieu et activités
+- **Système de marqueurs** pour les entreprises, stands et zones
+- **Interface moderne** avec design responsive
+- **Panneau de détails** pour chaque emplacement
+- **Légende interactive** pour identifier les types d'emplacements
+
+## 🛠️ Technologies
+
+- **Next.js 15** - Framework React
+- **TypeScript** - Typage statique
+- **TailwindCSS** - Styling moderne
+- **React Hooks** - Gestion d'état
+
+## 📋 Prérequis
+
+- Node.js 18+ installé
+- npm, yarn, pnpm ou bun
+
+## 🏃 Démarrage
+
+1. **Installer les dépendances**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+# ou
+yarn install
+# ou
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Lancer le serveur de développement**
+```bash
+npm run dev
+# ou
+yarn dev
+# ou
+pnpm dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Ouvrir le navigateur**
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🎨 Personnalisation
 
-## Learn More
+### Modifier les emplacements
 
-To learn more about Next.js, take a look at the following resources:
+Éditez le fichier `components/CayoPericoMap.tsx` et modifiez le tableau `locations`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```typescript
+const locations: Location[] = [
+  {
+    id: '1',
+    name: 'Nom de l\'emplacement',
+    type: 'entreprise' | 'stand' | 'zone',
+    x: 50,  // Position X en pourcentage
+    y: 50,  // Position Y en pourcentage
+    description: 'Description de l\'emplacement',
+    color: '#3b82f6'  // Couleur du marqueur
+  },
+  // Ajoutez d'autres emplacements...
+];
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Modifier les informations événement
 
-## Deploy on Vercel
+Éditez le fichier `components/EventInfo.tsx` pour modifier les informations de l'événement.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚢 Déploiement sur Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Méthode 1: Via Vercel CLI
+
+1. **Installer Vercel CLI**
+```bash
+npm install -g vercel
+```
+
+2. **Se connecter à Vercel**
+```bash
+vercel login
+```
+
+3. **Déployer**
+```bash
+vercel
+```
+
+### Méthode 2: Via GitHub
+
+1. **Pousser le code sur GitHub**
+```bash
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin https://github.com/votre-username/cayo-perico-map.git
+git push -u origin main
+```
+
+2. **Importer sur Vercel**
+   - Allez sur [vercel.com](https://vercel.com)
+   - Cliquez sur "Add New Project"
+   - Importez votre repository GitHub
+   - Cliquez sur "Deploy"
+
+### Méthode 3: Via l'interface Vercel
+
+1. Allez sur [vercel.com/new](https://vercel.com/new)
+2. Importez votre repository
+3. Cliquez sur "Deploy"
+
+## 📝 Structure du projet
+
+```
+cayo-perico-map/
+├── app/
+│   ├── page.tsx          # Page principale
+│   ├── layout.tsx        # Layout global
+│   └── globals.css       # Styles globaux
+├── components/
+│   ├── CayoPericoMap.tsx # Composant carte interactive
+│   ├── EventInfo.tsx     # Composant infos événement
+│   └── LocationPanel.tsx # Composant panneau détails
+├── public/               # Assets statiques
+├── package.json          # Dépendances
+└── README.md            # Ce fichier
+```
+
+## 🎯 Types d'emplacements
+
+- **🏢 Entreprises** (bleu) - Lieux principaux et infrastructures
+- **📍 Stands** (vert) - Points d'intérêt et services
+- **🏝️ Zones** (rouge) - Aires géographiques et activités
+- **VIP** (orange) - Zones exclusives
+
+## 📱 Responsive Design
+
+L'application est entièrement responsive et s'adapte à:
+- **Desktop** (1024px+)
+- **Tablette** (768px - 1023px)
+- **Mobile** (< 768px)
+
+## 🔧 Maintenance
+
+Pour mettre à jour les dépendances:
+```bash
+npm update
+```
+
+Pour vérifier les vulnérabilités:
+```bash
+npm audit
+```
+
+## 📄 Licence
+
+Ce projet est créé pour un événement GTA V sur Cayo Perico.
+
+## 🤝 Contribution
+
+Pour ajouter de nouvelles fonctionnalités ou corriger des bugs, n'hésitez pas à faire une pull request.
