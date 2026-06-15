@@ -27,31 +27,63 @@ export default function Home() {
   const [locations, setLocations] = useState<Location[]>([]);
   const [isSelectingPosition, setIsSelectingPosition] = useState(false);
 
-  // Charger les marqueurs depuis localStorage au démarrage
+  // Charger les marqueurs depuis la base de données au démarrage
   useEffect(() => {
-    const savedLocations = localStorage.getItem('cayoPericoLocations');
-    if (savedLocations) {
-      setLocations(JSON.parse(savedLocations));
-    }
+    fetchLocations();
   }, []);
 
-  // Sauvegarder les marqueurs dans localStorage quand ils changent
-  useEffect(() => {
-    localStorage.setItem('cayoPericoLocations', JSON.stringify(locations));
-  }, [locations]);
-
-  const handleAddLocation = (newLocation: Location) => {
-    setLocations([...locations, newLocation]);
+  const fetchLocations = async () => {
+    try {
+      const response = await fetch('/api/locations');
+      const data = await response.json();
+      setLocations(data);
+    } catch (error) {
+      console.error('Erreur lors du chargement des marqueurs:', error);
+    }
   };
 
-  const handleDeleteLocation = (id: string) => {
-    setLocations(locations.filter(loc => loc.id !== id));
+  const handleAddLocation = async (newLocation: Location) => {
+    try {
+      const response = await fetch('/api/locations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newLocation),
+      });
+      const data = await response.json();
+      setLocations([...locations, data]);
+    } catch (error) {
+      console.error('Erreur lors de l\'ajout du marqueur:', error);
+    }
   };
 
-  const handleUpdateLocation = (updatedLocation: Location) => {
-    setLocations(locations.map(loc => 
-      loc.id === updatedLocation.id ? updatedLocation : loc
-    ));
+  const handleDeleteLocation = async (id: string) => {
+    try {
+      await fetch(`/api/locations/${id}`, {
+        method: 'DELETE',
+      });
+      setLocations(locations.filter(loc => loc.id !== id));
+    } catch (error) {
+      console.error('Erreur lors de la suppression du marqueur:', error);
+    }
+  };
+
+  const handleUpdateLocation = async (updatedLocation: Location) => {
+    try {
+      await fetch(`/api/locations/${updatedLocation.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedLocation),
+      });
+      setLocations(locations.map(loc => 
+        loc.id === updatedLocation.id ? updatedLocation : loc
+      ));
+    } catch (error) {
+      console.error('Erreur lors de la modification du marqueur:', error);
+    }
   };
 
   const handlePositionSelect = (x: number, y: number) => {
